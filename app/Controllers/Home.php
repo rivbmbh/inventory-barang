@@ -12,7 +12,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Dashboard',
             'subtitle' => 'Dashboard',
-            'tableTitle' => 'Welcome&nbsp;' . ucwords($session->get('username')),
+            'welcome' => 'Welcome&nbsp;' . ucwords($session->get('username')),
             'dataUsers' => $modelUser->findAll(),
         ];
 

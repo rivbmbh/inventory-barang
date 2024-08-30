@@ -11,7 +11,7 @@ namespace App\Views;
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                <h1 class="mt-4"><?= $tableTitle ?></h1>
+                <h1 class="mt-4"><?= $welcome ?></h1>
             </div>
             <div class="card-body">
 
