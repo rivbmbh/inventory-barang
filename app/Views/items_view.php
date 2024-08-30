@@ -14,10 +14,21 @@
                 <?= $tableTitle ?>
             </div>
             <div class="card-body">
-                <!-- Tampilkan pesan error jika ada -->
-                <?php if(session()->getFlashdata('error')): ?>
+                <!-- Tampilkan pesan error atau gagal jika ada -->
+                <?php if (session()->getFlashdata('errors') || session()->getFlashdata('gagal')): ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <?= session()->getFlashdata('error') ?>
+                    <ul>
+                        <!-- Looping untuk menampilkan semua error jika ada -->
+                        <?php if (session()->getFlashdata('errors')): ?>
+                        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                        <li><?= esc($error) ?></li>
+                        <?php endforeach ?>
+                        <?php endif; ?>
+                        <!-- Tampilkan pesan gagal jika ada -->
+                        <?php if (session()->getFlashdata('gagal')): ?>
+                        <li><?= esc(session()->getFlashdata('gagal')) ?></li>
+                        <?php endif; ?>
+                    </ul>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php endif; ?>

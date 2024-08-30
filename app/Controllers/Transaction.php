@@ -80,7 +80,7 @@ class Transaction extends BaseController{
                 $newStock = $item['stock'] + $quantity;
             } elseif ($type === 'out') {
                 if ($item['stock'] < $quantity) {
-                    return redirect()->back()->with('errors', 'Insufficient stock');
+                    return redirect()->back()->with('gagal', 'Insufficient stock');
                 }
                 $newStock = $item['stock'] - $quantity;
             }
@@ -111,7 +111,7 @@ class Transaction extends BaseController{
         // Temukan transaksi berdasarkan ID
         $transaction = $modelTransactions->find($id);
         if (!$transaction) {
-            return redirect()->to('transaction')->with('errors', 'Transaction not found');
+            return redirect()->to('transaction')->with('gagal', 'Transaction not found');
         }
 
         // Jika request adalah POST, lakukan proses update
@@ -167,7 +167,7 @@ class Transaction extends BaseController{
                 $newStock = $item['stock'] + $quantity;
             } elseif ($type === 'out') {
                 if ($item['stock'] < $quantity) {
-                    return redirect()->back()->with('errors', 'Insufficient stock');
+                    return redirect()->back()->with('gagal', 'Insufficient stock');
                 }
                 $newStock = $item['stock'] - $quantity;
             }

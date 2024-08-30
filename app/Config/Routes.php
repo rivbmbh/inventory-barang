@@ -6,7 +6,9 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 // $routes->setAutoRoute('/');
+$routes->get('auth/forbidden', 'Auth::forbidden');
 
+//filter
 $routes->group('', ['filter' => 'authCheck'], function($routes) {
     $routes->get('/', 'Home::index');
 

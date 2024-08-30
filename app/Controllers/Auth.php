@@ -7,6 +7,11 @@ use App\Models\UsersModel;
 
 class Auth extends BaseController
 {
+    public function forbidden()
+    {
+        return view('errors/cli/forbidden'); // Buat view yang sesuai
+    }
+    
     public function login()
     {
         $session = session();
